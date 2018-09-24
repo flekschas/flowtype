@@ -1,0 +1,64 @@
+{
+  "name": "flowtype-es",
+  "version": "0.1.0",
+  "description": "No Library version of FlowType.js ",
+  "author": "Fritz Lekschas",
+  "keywords": [
+    "font",
+    "responsive",
+    "no library",
+    "es6",
+    "FlowType.js"
+  ],
+  "license": "MIT",
+  "main": "dist/flowtype-es.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "dist/flowtype-es.js",
+    "dist/flowtype-es.min.js"
+  ],
+  "unpkg": "dist/flowtype-es.min.js",
+  "dependencies": {
+    "with-raf": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "eslint": "^5.4.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.0.0-rc.15",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.7.0",
+    "rollup": "^0.64.1",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^1.0.1",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  },
+  "scripts": {
+    "build": "rollup -c; webpack --config ./webpack.config.js --mode production",
+    "lint": "eslint index.js rollup.config.js webpack.config.js",
+    "precommit": "pretty-quick --staged",
+    "prepublishOnly": "npm run lint",
+    "prerelease": "rm -rf dist/*; npm run build; zip -r dist.zip dist",
+    "pretest": "npm run lint",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development --open",
+    "watch": "rollup -cw"
+  },
+  "homepage": "https://github.com/flekschas/flowtype",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flekschas/flowtype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flekschas/flowtype/issues"
+  }
+}

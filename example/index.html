@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>FlowType ES - Demo</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="Fritz Lekschas">
+
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding: 1em 0;
+      background: #efefef;
+    }
+
+    header label {
+      display: flex;
+      align-items: center;
+    }
+
+    header label span {
+      font-weight: bold;
+      padding-right: 1em;
+    }
+
+    main {
+      position: fixed;
+      top: 3em;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      overflow: auto;
+    }
+
+    #demo-control {
+      margin: 0 auto;
+    }
+
+    #demo-article {
+      width: 50%;
+      margin: 2em auto;
+      opacity: 0;
+      transition: opacity 1s cubic-bezier(.23, .15, .23, 1);
+    }
+
+    body.flowtyped #demo-article {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <label>
+      <span>Column Width</span>
+      <input id="demo-control" type="range" min="0" max="100" value="50" />
+    </label>
+  </header>
+
+  <main>
+    <div id="demo-article">
+      <h3>What does FlowType do?</h3>
+      <p>Ideally, the most legible typography contains between 45 and 75 characters per line. This is difficult to accomplish for all screen widths with only CSS media-queries. FlowType eases this difficulty by changing the font-size—and subsequently the line-height—based on a specific element's width. This allows for a perfect character count per line at any screen width.</p>
+      <p>Additional options, reviewed below, allow you to configure FlowType to fit your needs. These options include element size thresholds, font-size thresholds and font-size/line-height ratios. The element size thresholds will stop FlowType from performing its magic once the element reaches beyond specific pixel dimensions. The font-size thresholds will stop FlowType from resizing the text beyond certain font-sizes. Lastly, you have full control over the base font-size and line-height ratios, so that you can set your typography perfectly.</p>
+      <p>FlowType is extremely easy to use. Visit the getting started section, follow the four easy steps and you will be on well on your way to performing magic.</p>
+    </div>
+  </main>
+</body>
+</html>
