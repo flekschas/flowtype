@@ -1,0 +1,31 @@
+language: node_js
+node_js:
+  - "8"
+branches:
+  only:
+    - master
+    - develop
+    - "/^v.*$/"
+before_script:
+  - npm install
+before_deploy:
+  - npm run prerelease
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: OanYm3AOjWeufEIJg3ZtrvAmY7X5dl2ShNOLykpbMI7JfmOza8gLj/XxOyk0kLim8lp8IwrfxjgQeBRYJzHqB1SZF+gin3RpRMizAMRnoS6jfrS7c7IJYoMm6yETNEGrwEu84T17FCs3PEnzNLI4A28LiHtQatkKbjs+lRUEDZh/VeRJ+G4rf+M/+zkfYiv5xAfoq1ltsDodTUE9vbSh7ZH3lvcVexYNfmBrEsz2fQGbbi5wO5dSX1vk+oO3swr4ZMeb5GN4YI6nz/oHIg0sgcP0c896LvV73JjTRRT3cm5wyat7V8svBt6X2N1TZvG/0Yb4hHoki/hgMM/MYoDZrkAoTO8UD9auf0OEzZazfH1x7JGpnaDdjzURJAdi4efUkEo84GjhbCCAEYbR1g3HRHyiPVSiEzKjEp16e2VnvrcJYyYtfa8OHpopFB1v1H0WyuKQkuJLPqbPosp14a1KJhOwY/4iu4xhhaxkwxXyYLZFF1P0h8UEtOYjuSmSwyuD10l4Zy0tyhCpTipNx2EFJZYkGoVsnT1Fe1l9/IAKSfPCH+nU4yH1v85bPBQ2WRIEknzALB1FfFug073uqwbcrAfRvgt9I/1QhucYFlf9dqfoLXfD38OrcQmTJSf0/kDuLMOhHCWV8MbHdASghCLYm8uwpTnp2UWGbcTqHhE2DzI=
+    file: dist.zip
+    on:
+      branch: master
+      tags: true
+      repo: flekschas/flowtype
+  - provider: npm
+    skip_cleanup: true
+    email: service@lekschas.de
+    api_key:
+      secure: dC6QOl45Djgbxc8kLkCESB9vee7ORvQrNdKu3A5OkoUVlUs9BjtxG6VXG98OpjBcg5a5Bh4bf341oqPcEUdDEYg0zIfIPzGNKt0e6uNW5CU6O4NMYCZnRHK+XzIQ9D8GoseWbN/WQYcb5YUevBfb0KIy4jX7hLdvhyV40JfP3BbUDCkfY1c9VmuqUUWxf1mOXaFCGehTZSVSIQftabB0mVGVLrZkrLxkqfaGANCjF/tTgdrx2T46wfWZbVS+TMxIJoHAz9I3byp1+wq5NbMCb0yAUykUq+i717gkexApuHa8mXUzHbj2Bd5HQbHqMR6VjIkrmidDoerom9zCZwpp/Y/59JNw2IRaiGJ/mVh/4iJyhjDJZX6ZTcZAwrj/4/O0xUpMDTA6AdGJCKqaCDF/M/xVilJloXH/ehV5gEYAl0sg//iBpUz3C/ffwLaoqVvarBj1QkWv3QDHAcWekU+1w0GrktoTaQxsqcROHodAd3VB13Novzc119kzP7IV4QvEeeiOmY1pMyCCZ9ymJNYCKAWoADEi3SigFWp+/5x+eM+y+XnPbHRpiOy7AwNvXCeUmzuwyo5weQ5VQM7sAK3M7fYEV3g+gHJJuymNgnUxhIlgkkgaqH+cx200+ICe4/6QezYyVb32NCLQX7qSM5yU70IPFT2zBhJYBH8y+9qYxy0=
+    on:
+      branch: master
+      tags: true
+      repo: flekschas/flowtype
